@@ -8,9 +8,9 @@ app = Flask(__name__)
 
 @app.route('/train')
 def train():
-    df = pd.read_excel('Historical Alarm Cases xlsx')
+    df = pd.read_excel('C:\Users\Admin\Downloads\Chemical_Industry\Chemical_Industry\Historical Alarm Cases xlsx')
     x = df.iloc[:,1:7]
-    y = df['Spuriocity Index(0/1)']
+    y = df['Spuriosity Index(0/1)']
     LR = LogisticRegression()
     LR.fit(x,y)
     joblib.dump(LR,'TrainedModel.pkl')
